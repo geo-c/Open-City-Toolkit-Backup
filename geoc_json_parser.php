@@ -5,10 +5,10 @@ $dataPortals = json_decode(file_get_contents($url), true);
 
 //connect to database
 $host = "giv-lodumdata.uni-muenster.de";
-$port = "5432";
+$port = "0000";
 $database = "postgres";
-$user = "postgres";
-$password = "Life#2013";
+$user = "user";
+$password = "password";
 $connectionParameters = "host=".$host." port=".$port." dbname=".$database." user=".$user." password=".$password;
 $connection = pg_connect($connectionParameters) or die("Could not connect");
 

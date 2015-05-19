@@ -7,11 +7,11 @@ $(document).ready(function () {
 	map.initMap();
 	map.initSidebar();
 
-	var data = null;
 
 	$.getJSON("data/data.json", function(data) {
 	    map.addData(data);
 	    process();
+
 	});
 
 	process = function () {
@@ -31,8 +31,6 @@ $(document).ready(function () {
 	});
 
 	if(srch) {
-		console.log("test");
-
 		$.getJSON('http://nominatim.openstreetmap.org/search?format=json&limit=5&q=' + srch, function(data) {
 			var lat = data[0].lat
 			var lng = data[0].lon;
@@ -40,6 +38,9 @@ $(document).ready(function () {
 			var northEast =  L.latLng(lat + 0.5, lng + 0.5);
 			bounds = L.latLngBounds(southWest, northEast);
 			map.fitBounds(bounds);
+			map.sidebar.filterTable(srch);
+	    	$('#srch-term').val(srch);
+
 		});
 	}
 

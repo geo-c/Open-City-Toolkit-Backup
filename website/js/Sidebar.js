@@ -24,11 +24,22 @@ Sidebar.prototype.fillData = function () {
 	$table.append($body);
 	this._sidebar.append($table)
 	
-	this.dtable = $table.DataTable( 
-		{
-			searching: false,
-	  	} 
-  	);
+	this.dtable = $table.DataTable();
+
+	$('datatables_filter').css( "display", "none" );
+};
+
+Sidebar.prototype.hide = function () {
+	$("#sidebar-container").hide();
+};
+
+Sidebar.prototype.show = function () {
+	$("#sidebar-container").show();
+};
+
+Sidebar.prototype.filterTable = function (term) {
+	this.dtable.search(term);
+	this.dtable.draw();
 };
 
 Sidebar.prototype.clear = function () {

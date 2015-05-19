@@ -30,8 +30,7 @@ var Map = L.Map.extend({
 				var latlng = [loc[0], loc[1]];
 				var marker = L.marker(latlng);
 				marker.on('click', function (e) {
-					that.sidebar.dtable.search(value.name);
-					that.sidebar.dtable.draw();
+					that.sidebar.filterTable(srch);
 					$("#toggleSidebar").text("< Hide Sidebar");
 					$("#sidebar-container").show();
 					$("#map-container").attr("class","col-md-6");
@@ -49,23 +48,32 @@ var Map = L.Map.extend({
 		    div.innerHTML = inner;
 		    return div;
 		};
-		this.toggleButton.addTo(this);
-		
-		$("#toggleSidebar").text("Show Sidebar >");
-		$("#sidebar-container").hide();
+		$("#map-container").attr("class","col-md-6 pull-right");
 
+		this.toggleButton.addTo(this);
+
+		var that = this;
 		$("#toggleSidebar").on('click', function (e) {
 			if($("#toggleSidebar").text() == "Show Sidebar >") {
-				$("#toggleSidebar").text("< Hide Sidebar");
-				$("#sidebar-container").show();
-				$("#map-container").attr("class","col-md-6 pull-right");
+				that.showSidebar();
 			} else {
-				$("#toggleSidebar").text("Show Sidebar >");
-				$("#sidebar-container").hide();
-				$("#map-container").attr("class","col-md-12 pull-right");
-				    
+				that.hideSidebar();				    
 			}		
 		});
+	},
+
+	showSidebar: function () {
+		$("#toggleSidebar").text("< Hide Sidebar");
+		this.sidebar.show();
+		$("#map-container").attr("class","col-md-6 pull-right");
+		console.log(this.getBounds());
+	},
+
+	hideSidebar: function () {
+		$("#toggleSidebar").text("Show Sidebar >");
+		this.sidebar.hide();
+		$("#map-container").attr("class","col-md-12 pull-right");
+		console.log(this.getBounds());
 	},
 
 	initMap: function () {

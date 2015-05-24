@@ -1,92 +1,92 @@
 <html lang="de">
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-	<!-- include the header -->
-	<head>
-		<!-- Include Stylesheets -->
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-		<!-- Leaflet -->
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-		<!-- Leaflet.markercluster -->
-		<link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css" rel="stylesheet">
-		<link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css" rel="stylesheet">
-		<!-- Datatable -->
-		<link rel="stylesheet" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" />
-	</head>
+    <!-- include the header -->
+    <head>
+        <!-- Include Stylesheets -->
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <!-- Leaflet.markercluster -->
+        <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css" rel="stylesheet">
+        <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css" rel="stylesheet">
+        <!-- Datatable -->
+        <link rel="stylesheet" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" />
+    </head>
 
-	<body class="boxed-layout container color-dark-blue">
-		
-		<div class="wrapper">
+    <body class="boxed-layout container color-dark-blue">
 
-			<nav role="navigation" class="navbar navbar-default">
-				<div class="header header-v4">
-					
-					 <!-- Collection of nav links and other content for toggling -->
-	    			<div id="navbarCollapse" class="collapse navbar-collapse navbar-responsive-collapse">
-	    				<div class="container">
-		        			<ul class="nav navbar-nav">
-					            <li class="active"><a id="btn-home" href="#">Home</a></li>
-					            <li><a id="btn-addApi" href="#">Add API</a></li>
-					            
-					            <li><form class="navbar-form" role="search">
-					            	<div class="input-group">
-					            		<input type="text" class="form-control" placeholder="Search" name="srch" id="srch-term">
-					            	</div>
-					            </form></li>
-		        			</ul>
-					        <ul class="nav navbar-nav navbar-right">
-					            <!-- Nothing here yet-->
-					        </ul>
+        <div class="wrapper">
 
-					        <div class="col-md-1 pull-right"></div>
-							<div class="navbar-header pull-right">
-								<a class="navbar-brand" href="http://www.geo-c.eu">
-									<div><img id="logo-header" src="images/logo-geoc.png" alt="Geo-C Logo"></div>
-								</a>
-							</div>
+            <nav role="navigation" class="navbar navbar-default">
+                <div class="header header-v4">
 
-		    			</div>
+                    <!-- Collection of nav links and other content for toggling -->
+                    <div id="navbarCollapse" class="collapse navbar-collapse navbar-responsive-collapse">
+                        <div class="container">
+                            <ul class="nav navbar-nav">
+                                <li id="hometaskbar" class="active"><a id="btn-home" href="#">Home</a></li>
+                                <li id="addapitaskbar"><a id="btn-addApi" href="#">Add API</a></li>
 
+                                <li><form class="navbar-form" role="search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search" name="srch" id="srch-term">
+                                        </div>
+                                    </form></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <!-- Nothing here yet-->
+                            </ul>
 
-	    			</div>
+                            <div class="col-md-1 pull-right"></div>
+                            <div class="navbar-header pull-right">
+                                <a class="navbar-brand" href="http://www.geo-c.eu">
+                                    <div><img id="logo-header" src="images/logo-geoc.png" alt="Geo-C Logo"></div>
+                                </a>
+                            </div>
 
-				</div>
-
-				<br><br>
-
-				<div class="container content">
-					<div class="row magazine-page" style="height:80%;">
-						<div id="sidebar-container" class="col-md-6 pull-left">
-							<div id="sidebar" style="overflow-x:auto;height:100%; width=100%;">
-						    </div>
-						</div>
-					    <div id="map-container" class="col-md-12 pull-right" >
-				        	<div id="map" style="height:100%; width:95%;"></div>
-				        </div>
-				    </div>
-				</div>	
-
-			</nav>
+                        </div>
 
 
-			
+                    </div>
 
-		</div>	
+                </div>
+
+                <br><br>
+
+                <div class="container content">
+                    <div class="row magazine-page" style="height:80%;">
+                        <div id="sidebar-container" class="col-md-6 pull-left">
+                            <div id="sidebar" style="overflow-x:auto;height:100%; width=100%;">
+                            </div>
+                        </div>
+                        <div id="map-container" class="col-md-12" >
+                            <div id="map" style="height:100%; width:95%;"></div>
+                        </div>
+                    </div>
+                </div>	
+
+            </nav>
 
 
-		<!-- Leaflet -->
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<!-- Leaflet -->
-		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-		<!-- Leaflet.markerCluster -->
-		<script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
-		<script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-		<!-- custom -->
-		<script src="js/index.js"></script>
-		<script src="js/Sidebar.js"></script>
-		<script src="js/Map.js"></script>
-	</body>
+
+
+        </div>	
+
+
+        <!-- Leaflet -->
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Leaflet -->
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <!-- Leaflet.markerCluster -->
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+        <script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+        <!-- custom -->
+        <script src="js/index.js"></script>
+        <script src="js/Sidebar.js"></script>
+        <script src="js/Map.js"></script>
+    </body>
 </html>                 

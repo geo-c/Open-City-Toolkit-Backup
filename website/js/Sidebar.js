@@ -63,7 +63,7 @@ Sidebar.prototype.addAPI = function () {
 	$authorTextField = $('<input type="text" class="form-control" name="text-3" id="author" value="">');	
 	$publisherLabel = $('<label for="text-3">Publisher:</label>');
 	$publisherTextField = $('<input type="text" class="form-control" name="text-3" id="publisher" value="">');	
-	$descriptionLabel = $('<label for="text-3">Descrription:</label>');
+	$descriptionLabel = $('<label for="text-3">Description:</label>');
 	$descriptionTextField = $('<input type="text" class="form-control" name="text-3" id="description" value="">');	
 	$tagsLabel = $('<label for="text-3">Tags:</label>');
 	$tagsTextField = $('<input type="text" class="form-control" name="text-3" id="tags" value="" placeholder="Tags separated by ;">');	

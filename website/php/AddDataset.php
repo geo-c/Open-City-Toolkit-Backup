@@ -34,10 +34,10 @@
 	$returnedID = substr($returnedContent[0], 0, strlen($returnedContent[0]));
 	
 	for ($i = 0; $i < count($locations); $i++){
-		$continent = $locations[0]["Continent"];
-		$country = $locations[0]["Country"];
-		$state = $locations[0]["State"];
-		$city = $locations[0]["City"];		
+		$continent = $locations[$i]["Continent"];
+		$country = $locations[$i]["Country"];
+		$state = $locations[$i]["State"];
+		$city = $locations[$i]["City"];		
 		$StaffQuery=pg_query($dbconn,"insert into \"Location\" values (default,'".$returnedID."','".$continent."','".$country."','".$state."','".$city."')");
 	}
 

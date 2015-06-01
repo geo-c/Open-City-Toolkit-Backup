@@ -6,10 +6,10 @@
 		var newRow = $('<tr>');
 		var cols = "";
 
-		cols += '<td><input type="text" name="continent' + counter + '"/></td>';
-		cols += '<td><input type="text" name="country' + counter + '"/></td>';
-		cols += '<td><input type="text" name="state' + counter + '"/></td>';
-		cols += '<td><input type="text" name="city' + counter + '"/></td>';
+		cols += '<td><input type="text" name="continent' + counter + '" style = "width:100%;"/></td>';
+		cols += '<td><input type="text" name="country' + counter + '" style = "width:100%;"/></td>';
+		cols += '<td><input type="text" name="state' + counter + '" style = "width:100%;"/></td>';
+		cols += '<td><input type="text" name="city' + counter + '" style = "width:100%;"/></td>';
 
 		cols += '<td><button class="ibtnDel" onclick="deleteRow(this.id)" id = "deleteBtn'+counter+'">Delete</button></td>';
 		newRow.append(cols);
@@ -59,15 +59,33 @@
 				date:date
 				},
 				function(data){
-					console.log(data)
+					if (data == ""){
+						alert("Added data successfully");
+						deleteFields();
+					}
 				}			
 			);
 		}
 	}
 	
+	function deleteFields(){
+		$('#title').val("");
+		$('#name').val("");
+		$('#url').val("");
+		$('#author').val("");
+		$('#publisher').val("");
+		$('#description').val("");
+		$('#tags').val("");
+		$('#').val("");
+		$('#languages').val("");
+		$('#status').val("");
+		$('#apiEndpoint').val("");
+		$('#tbody').empty();
+		addRow();	
+	}
+	
 	function checkData(title, url, locations){
 		var dataIsFine = true;
-		console.log(locations[0].Continent)
 		if (title.trim() == "" || url.trim() == "" || locations[0].Continent == ""){
 			alert("Required data is missing");
 			dataIsFine = false;
@@ -78,6 +96,7 @@
 	function getLocations(){
 		var locations = [];
 		$("tbody tr").each(function(i){
+			console.log($(this).find("input")[0].value);
 			var location = {"Continent": $(this).find("input")[0].value,
 							"Country": $(this).find("input")[1].value,
 							"State": $(this).find("input")[2].value,
@@ -85,6 +104,7 @@
 							}
 			locations.push(location);					
 		});
+		console.log(locations);
 		return locations;
 	}
 	

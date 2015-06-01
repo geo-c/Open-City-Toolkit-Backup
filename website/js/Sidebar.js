@@ -66,19 +66,20 @@ Sidebar.prototype.addAPI = function () {
 	$descriptionLabel = $('<label for="text-3">Descrription:</label>');
 	$descriptionTextField = $('<input type="text" class="form-control" name="text-3" id="description" value="">');	
 	$tagsLabel = $('<label for="text-3">Tags:</label>');
-	$locationTextField = $('<input type="text" class="form-control" name="text-3" id="tags" value="" placeholder="Tags separated by ;">');	
+	$tagsTextField = $('<input type="text" class="form-control" name="text-3" id="tags" value="" placeholder="Tags separated by ;">');	
 	
 	$div.append($titleLabel);$div.append($titleTextField);$div.append($nameLabel);$div.append($nameTextField);
 	$div.append($urlLabel);$div.append($urlTextField);$div.append($authorLabel);$div.append($authorTextField);
 	$div.append($publisherLabel);$div.append($publisherTextField);$div.append($descriptionLabel);$div.append($descriptionTextField);
-	$div.append($tagsLabel);$div.append($locationTextField);
+	$div.append($tagsLabel);$div.append($tagsTextField);
 	
 	$tablehead = $('</br><label for="myTable">Locations*:</label>');
 	$table = $('<table id="myTable" class="table" name = "myTable"></table>');
     $head = $('<thead></thead>');
-    $body = $('<tbody></tbody>');
+    $body = $('<tbody id = "tbody"></tbody>');
     $hline = $('<tr></tr>');
 	
+	//<div class="col-xs-3">
 	$hline.append($('<th></th>').html('<b>Continent</b>'));
     $hline.append($('<th></th>').html('<b>Country</b>'));
 	$hline.append($('<th></th>').html('<b>State</b>'));
@@ -94,10 +95,10 @@ Sidebar.prototype.addAPI = function () {
 	$head.append($hline);
 	
 	var $bline = $('<tr></tr>');
-	$bline.append($('<td></td>').html('<input type="text" name="continent"/>'));
-	$bline.append($('<td></td>').html('<input type="text" name="country" />'));
-	$bline.append($('<td></td>').html('<input type="text" name="state" />'));
-	$bline.append($('<td></td>').html('<input type="text" name="city" />'));
+	$bline.append($('<td ></td>').html('<input type="text" name="continent" style = "width:100%;"/>'));
+	$bline.append($('<td></td>').html('<input type="text" name="country" style = "width:100%;"/>'));
+	$bline.append($('<td></td>').html('<input type="text" name="state" style = "width:100%;"/>'));
+	$bline.append($('<td></td>').html('<input type="text" name="city" style = "width:100%;"/>'));
 
 	$buttonDel = $('<button/>', {
         text: 'Delete',

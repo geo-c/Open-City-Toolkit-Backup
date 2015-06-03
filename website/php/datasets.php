@@ -1,5 +1,5 @@
 <?php
-$conn_string = "host=giv-lodumdata.uni-muenster.de port=5432 dbname=DatasetsCollection user=postgres password=Life#2013";
+$conn_string = "host=*** port=*** dbname=*** user=*** password=***";
 $dbconn = pg_connect($conn_string);
 $result = pg_query($dbconn, 'SELECT * FROM "Datasets"');
 $resultArray = pg_fetch_all($result);

@@ -1,5 +1,5 @@
 <?php
-	$dbconn = pg_connect("host=giv-lodumdata.uni-muenster.de port=5432 dbname=DatasetsCollection user=postgres password=Life#2013")
+	$dbconn = pg_connect("host=*** port=*** dbname=*** user=*** password=***")
 		or die('Verbindungsaufbau fehlgeschlagen: ' . pg_last_error());
 
 	header("Content-Type: text/html; charset=utf-8");  

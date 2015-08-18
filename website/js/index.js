@@ -21,11 +21,32 @@ $(document).ready(function () {
         map.sidebar.addAPI();
         $('#hometaskbar').attr('class', '');
         $('#addapitaskbar').attr('class', 'active');
+        $('#parsertaskbar').attr('class', '');
+        $('#linkeddata').attr('class', '');
     });
 
     $('#btn-home').on('click', function () {
         map.sidebar.fillData();
         $('#hometaskbar').attr('class', 'active');
+        $('#addapitaskbar').attr('class', '');
+        $('#parsertaskbar').attr('class', '');
+        $('#linkeddata').attr('class', '');
+    });
+
+    $('#btn-parser').on('click', function () {
+        map.sidebar.parser();
+        initParser();
+        $('#parsertaskbar').attr('class', 'active');
+        $('#hometaskbar').attr('class', '');
+        $('#addapitaskbar').attr('class', '');
+        $('#linkeddata').attr('class', '');
+    });
+
+    $('#btn-linkeddata').on('click', function () {
+        map.sidebar.linkedData();
+        $('#linkeddata').attr('class', 'active');
+        $('#parsertaskbar').attr('class', '');
+        $('#hometaskbar').attr('class', '');
         $('#addapitaskbar').attr('class', '');
     });
 

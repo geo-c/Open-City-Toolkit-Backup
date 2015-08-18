@@ -1,5 +1,5 @@
 <?php
-	$dbconn = pg_connect("host=*** port=*** dbname=*** user=*** password=***")
+	$dbconn = pg_connect("host=giv-lodumdata.uni-muenster.de port=5432 dbname=DatasetsCollection user=postgres password=Life#2013")
 		or die('Verbindungsaufbau fehlgeschlagen: ' . pg_last_error());
 
 	header("Content-Type: text/html; charset=utf-8");  
@@ -34,10 +34,10 @@
 	$returnedID = substr($returnedContent[0], 0, strlen($returnedContent[0]));
 	
 	for ($i = 0; $i < count($locations); $i++){
-		$continent = $locations[$i]["Continent"];
-		$country = $locations[$i]["Country"];
-		$state = $locations[$i]["State"];
-		$city = $locations[$i]["City"];		
+		$continent = $locations[0]["Continent"];
+		$country = $locations[0]["Country"];
+		$state = $locations[0]["State"];
+		$city = $locations[0]["City"];		
 		$StaffQuery=pg_query($dbconn,"insert into \"Location\" values (default,'".$returnedID."','".$continent."','".$country."','".$state."','".$city."')");
 	}
 

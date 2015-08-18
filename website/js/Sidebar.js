@@ -22,7 +22,7 @@ Sidebar.prototype.fillData = function () {
         $body.append($bline);
     });
     $table.append($body);
-    this._sidebar.append($table)
+    this._sidebar.append($table);
 
     this.dtable = $table.DataTable();
 
@@ -63,23 +63,22 @@ Sidebar.prototype.addAPI = function () {
 	$authorTextField = $('<input type="text" class="form-control" name="text-3" id="author" value="">');	
 	$publisherLabel = $('<label for="text-3">Publisher:</label>');
 	$publisherTextField = $('<input type="text" class="form-control" name="text-3" id="publisher" value="">');	
-	$descriptionLabel = $('<label for="text-3">Description:</label>');
+	$descriptionLabel = $('<label for="text-3">Descrription:</label>');
 	$descriptionTextField = $('<input type="text" class="form-control" name="text-3" id="description" value="">');	
 	$tagsLabel = $('<label for="text-3">Tags:</label>');
-	$tagsTextField = $('<input type="text" class="form-control" name="text-3" id="tags" value="" placeholder="Tags separated by ;">');	
+	$locationTextField = $('<input type="text" class="form-control" name="text-3" id="tags" value="" placeholder="Tags separated by ;">');	
 	
 	$div.append($titleLabel);$div.append($titleTextField);$div.append($nameLabel);$div.append($nameTextField);
 	$div.append($urlLabel);$div.append($urlTextField);$div.append($authorLabel);$div.append($authorTextField);
 	$div.append($publisherLabel);$div.append($publisherTextField);$div.append($descriptionLabel);$div.append($descriptionTextField);
-	$div.append($tagsLabel);$div.append($tagsTextField);
+	$div.append($tagsLabel);$div.append($locationTextField);
 	
 	$tablehead = $('</br><label for="myTable">Locations*:</label>');
 	$table = $('<table id="myTable" class="table" name = "myTable"></table>');
     $head = $('<thead></thead>');
-    $body = $('<tbody id = "tbody"></tbody>');
+    $body = $('<tbody></tbody>');
     $hline = $('<tr></tr>');
 	
-	//<div class="col-xs-3">
 	$hline.append($('<th></th>').html('<b>Continent</b>'));
     $hline.append($('<th></th>').html('<b>Country</b>'));
 	$hline.append($('<th></th>').html('<b>State</b>'));
@@ -95,10 +94,10 @@ Sidebar.prototype.addAPI = function () {
 	$head.append($hline);
 	
 	var $bline = $('<tr></tr>');
-	$bline.append($('<td ></td>').html('<input type="text" name="continent" style = "width:100%;"/>'));
-	$bline.append($('<td></td>').html('<input type="text" name="country" style = "width:100%;"/>'));
-	$bline.append($('<td></td>').html('<input type="text" name="state" style = "width:100%;"/>'));
-	$bline.append($('<td></td>').html('<input type="text" name="city" style = "width:100%;"/>'));
+	$bline.append($('<td></td>').html('<input type="text" name="continent"/>'));
+	$bline.append($('<td></td>').html('<input type="text" name="country" />'));
+	$bline.append($('<td></td>').html('<input type="text" name="state" />'));
+	$bline.append($('<td></td>').html('<input type="text" name="city" />'));
 
 	$buttonDel = $('<button/>', {
         text: 'Delete',
@@ -140,4 +139,50 @@ Sidebar.prototype.addData = function (data) {
     this.data = data;
 };
 
+Sidebar.prototype.parser = function (data) {
+    this.clear();
+    $buttonDiv = $('<div id = "buttons"></div>');
+    $parserDiv = $('<div id = "urls"></div>');
+    this._sidebar.append($buttonDiv);
+    this._sidebar.append($parserDiv);
+};
 
+Sidebar.prototype.linkedData = function (data) {
+    this.clear();
+    
+    $container = $('<div class="form-group" id ="app">');
+    $header = $('<label for="sel2">Select Application:</label>');
+	$dropDown = $('<select class="form-control application" id="sel2"></select>');
+	for ( var i = 0; i < linkedDataAppArray.length; i++){
+		$li1 = $('<option value="'+linkedDataAppArray[i]+'"></option>').html(linkedDataAppArray[i]);
+		$dropDown.append($li1);
+	}
+	$container.append($header);
+	$container.append($dropDown);
+	this._sidebar.append($container);	
+
+	$consumesTable = initConsumesTable();
+	//this._sidebar.append($consumesTable);
+	
+	$generatesTable = initGeneratesTable();
+	//this._sidebar.append($generatesTable);	
+
+	$table = $('<table class="table" name = "myTable"></table>');
+    $head = $('<thead></thead>');
+    $body = $('<tbody></tbody>');
+    $hline = $('<tr></tr>');
+    $hline.append($generatesTable);
+    $hline.append($consumesTable);
+    $body.append($hline);
+    $table.append($head);
+    $table.append($body);
+	this._sidebar.append($table);
+	
+	$buttonSave = $('<button/>', {
+        text: 'Save',
+		id: 'btn_save',
+		click: function () { saveLinkedData(); }
+	});		
+	this._sidebar.append($buttonSave);
+
+};
